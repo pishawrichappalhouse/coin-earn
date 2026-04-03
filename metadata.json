@@ -1,0 +1,5 @@
+{
+  "name": "CoinEarn - Modern Earning App",
+  "description": "A modern web-based earning application with Firebase Auth, coin rewards, and daily bonuses.",
+  "requestFramePermissions": []
+}

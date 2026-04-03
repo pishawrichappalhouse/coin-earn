@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user earning data and balance.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique user ID." },
+        "email": { "type": "string", "description": "The user's email address." },
+        "coins": { "type": "integer", "description": "The total coin balance." },
+        "lastDailyBonus": { "type": "string", "format": "date-time", "description": "The last time the user claimed the daily bonus." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the user profile was created." }
+      },
+      "required": ["uid", "email", "coins"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "UserProfile",
+      "description": "User-specific earning data."
+    }
+  }
+}
