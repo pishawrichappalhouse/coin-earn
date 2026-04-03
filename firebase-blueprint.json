@@ -12,12 +12,29 @@
         "createdAt": { "type": "string", "format": "date-time", "description": "When the user profile was created." }
       },
       "required": ["uid", "email", "coins"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "A single coin transaction log.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["bonus", "ad", "spend"] },
+        "amount": { "type": "integer" },
+        "description": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["type", "amount", "timestamp"]
     }
   },
   "firestore": {
     "/users/{uid}": {
       "schema": "UserProfile",
       "description": "User-specific earning data."
+    },
+    "/users/{uid}/transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "History of user transactions."
     }
   }
 }
